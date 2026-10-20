@@ -1,0 +1,14 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.xiaoyun/
+data/
+work/
+**/dist/
+backend/
+releases/
+__pycache__/
+*.pyc
+*.log
+*.tgz

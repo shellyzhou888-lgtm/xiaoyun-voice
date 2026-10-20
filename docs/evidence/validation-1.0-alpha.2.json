@@ -1,0 +1,80 @@
+{
+  "version": "1.0.0-alpha.2",
+  "checkedAt": "2026-09-11",
+  "behaviorTests": {
+    "passed": 43,
+    "failed": 0
+  },
+  "realAudio": {
+    "ok": true,
+    "mode": "Synthetic recording through browser microphone/AudioWorklet, real Qwen + Pi, actual sales dashboard; not physical microphone",
+    "question": "分析2026年各地区利润，找出最高的地区并计算它占总利润的比例；把页面切换到该地区、2026年、利润指标和经营总览，报告给出比较表和占比。",
+    "transcript": "分析2026年各地区利润，找出最高的地区并计算它占总利润的比例；把页面切换到该地区、2026年、利润指标和经营总览，报告给出比较表和占比。",
+    "result": "已切换到利润最高地区华东，2026年利润420.29万元，占全国34.78%，同比增9.81%。",
+    "markdown": "## 结论\n\n2026 年利润最高的地区为 **华东**（利润 4,202,871.1 元，占全国利润 34.78%）。销售大屏已切换到：经营总览视图、华东、2026 年、利润指标（原年份已是 2026、视图已是经营总览，未重复切换）。\n\n## 一、华东 2025 vs 2026 比较表（单位：元）\n\n| 年份 | 销售额 | 成本 | 利润 |\n| --- | --- | --- | --- |\n| 2025 | 10,632,105.00 | 6,804,547.20 | 3,827,557.80 |\n| 2026 | 12,545,883.90 | 8,343,012.80 | 4,202,871.10 |\n| 变化 | +1,913,778.90（+18.00%） | +1,538,465.60 | +375,313.30（+9.81%） |\n\n- 利润同比：**+9.81%**（以 2025 年利润为分母）。\n- 销售额同比 +18.00%，利润增速低于收入增速，成本同比增长，毛利率由约 36.0% 降至约 33.5%。\n\n## 二、2026 年各地区利润占比\n\n| 地区 | 2026 利润（元） | 占全国比重 | 2026 销售额（元） | 利润同比 |\n| --- | --- | --- | --- | --- |\n| 华东 | 4,202,871.10 | 34.78% | 12,545,883.90 | +9.81% |\n| 华南 | 3,693,576.51 | 30.57% | 10,613,725.67 | +17.05% |\n| 西部 | 2,353,554.29 | 19.48% | 7,978,150.13 | +5.71% |\n| 华北 | 1,834,212.60 | 15.18% | 8,152,056.00 | -20.00% |\n| 全国合计 | 12,084,214.50 | 100.00% | 39,289,815.70 | +5.06% |\n\n## 三、要点\n\n- 华东利润规模最大且保持增长，是利润贡献第一的地区。\n- 华南增速最快（+17.05%），与华东差距缩小。\n- 华北是唯一下滑地区（-20.00%），利润垫底，需重点关注。\n\n## 说明\n\n- 口径：全年按地区汇总各月各产品，利润 = SUM(revenue − cost)。\n- 数据年份为 2025、2026（数据年份，非当前自然年）；同比以上年绝对值（非零）为分母，故均可计算。\n- 数值取自业务数据库，未做四舍五入以外的处理。",
+    "turns": 7,
+    "failures": [],
+    "spoken": [
+      {
+        "kind": "waiting",
+        "text": "我来处理这个任务。",
+        "expectedText": "我来处理这个任务。"
+      },
+      {
+        "kind": "waiting",
+        "text": "任务还需要一点时间。",
+        "expectedText": "任务还需要一点时间。"
+      },
+      {
+        "kind": "result",
+        "text": "已切换到利润最高地区华东，2026年利润420.29万元，占全国34.78%，同比增9.81%。",
+        "expectedText": "已切换到利润最高地区华东，2026年利润420.29万元，占全国34.78%，同比增9.81%。"
+      }
+    ],
+    "state": "华东 · 2026 年",
+    "errors": []
+  },
+  "playback": [
+    {
+      "channel": "msedge",
+      "checks": [
+        "actual Worklet start/drain",
+        "whole native chat drains before parallel results",
+        "barge-in and late packet rejection",
+        "browser context revision guard",
+        "wait A drains then result, B omitted",
+        "formal sentence group",
+        "replay without business callback",
+        "three cards/read protection/new result merge"
+      ],
+      "waitingResultAt": 1789105193701,
+      "waitingFinishedAt": 1789105193931,
+      "reading": {
+        "before": 91,
+        "after": 91
+      },
+      "errors": []
+    },
+    {
+      "channel": "chrome",
+      "checks": [
+        "actual Worklet start/drain",
+        "whole native chat drains before parallel results",
+        "barge-in and late packet rejection",
+        "browser context revision guard",
+        "wait A drains then result, B omitted",
+        "formal sentence group",
+        "replay without business callback",
+        "three cards/read protection/new result merge"
+      ],
+      "waitingResultAt": 1789105224253,
+      "waitingFinishedAt": 1789105224481,
+      "reading": {
+        "before": 91,
+        "after": 91
+      },
+      "errors": []
+    }
+  ],
+  "physicalMicrophoneVerified": false
+}

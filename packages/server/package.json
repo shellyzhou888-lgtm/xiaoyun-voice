@@ -1,0 +1,9 @@
+{
+  "name": "@xiaoyun/server",
+  "version": "1.0.0-beta.1",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@xiaoyun/protocol": "1.0.0-beta.1"
+  }
+}

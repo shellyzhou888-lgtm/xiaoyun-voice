@@ -1,0 +1,72 @@
+{
+  "version": "1.0.0-alpha.5",
+  "checkedAt": "2026-09-11",
+  "behaviorTests": 46,
+  "backendLogicChanged": false,
+  "physicalMicrophoneVerified": false,
+  "realModelsRetested": false,
+  "frontend": [
+    {
+      "ok": true,
+      "version": "1.0.0-alpha.5",
+      "channel": "msedge",
+      "actualAudioWorklet": true,
+      "systemReducedMotion": true,
+      "checks": [
+        "current speech text only",
+        "one live tail, no archive tails",
+        "no redundant speaking status card",
+        "new-result notice never overlays speech or archives",
+        "queued result cannot replace chat",
+        "summary shown once",
+        "upper-left placement and clear controls",
+        "10 seconds after drain",
+        "pinned archive retained",
+        "interruption rejects late text",
+        "edge dragging"
+      ],
+      "errors": []
+    },
+    {
+      "ok": true,
+      "version": "1.0.0-alpha.5",
+      "channel": "chrome",
+      "actualAudioWorklet": true,
+      "systemReducedMotion": true,
+      "checks": [
+        "current speech text only",
+        "one live tail, no archive tails",
+        "no redundant speaking status card",
+        "new-result notice never overlays speech or archives",
+        "queued result cannot replace chat",
+        "summary shown once",
+        "upper-left placement and clear controls",
+        "10 seconds after drain",
+        "pinned archive retained",
+        "interruption rejects late text",
+        "edge dragging"
+      ],
+      "errors": []
+    }
+  ],
+  "playback": {
+    "channel": "msedge",
+    "checks": [
+      "actual Worklet start/drain",
+      "whole native chat drains before parallel results",
+      "barge-in and late packet rejection",
+      "browser context revision guard",
+      "wait A drains then result, B omitted",
+      "formal sentence group",
+      "replay without business callback",
+      "three cards/read protection/new result merge"
+    ],
+    "waitingResultAt": 1789112189756,
+    "waitingFinishedAt": 1789112189980,
+    "reading": {
+      "before": 24,
+      "after": 24
+    },
+    "errors": []
+  }
+}

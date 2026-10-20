@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0-alpha.3",
+  "checkedAt": "2026-09-11",
+  "behaviorTests": 45,
+  "physicalMicrophoneVerified": false,
+  "fixture": {
+    "ok": true,
+    "live": false,
+    "channel": "msedge",
+    "checks": [
+      "one goodbye",
+      "actual audio drain before exit",
+      "no failure after 16 seconds",
+      "barge-in keeps session",
+      "click closes immediately",
+      "existing goodbye is not duplicated"
+    ],
+    "errors": []
+  },
+  "realAudio": {
+    "ok": true,
+    "version": "1.0.0-alpha.3",
+    "mode": "synthetic recording through Edge microphone, real Qwen and AudioWorklet; not physical microphone",
+    "input": [
+      "嗯，好的，你退下吧。"
+    ],
+    "spoken": [
+      "在的。",
+      "好，我先退下啦。"
+    ],
+    "closing": [
+      {
+        "at": "2026-09-11T05:54:55.286Z",
+        "sessionId": "239e4ca1-24fc-49f8-a120-c75be112fab9",
+        "direction": "send",
+        "type": "session.closing",
+        "deliveryId": "00b30e18-82bb-41f1-b2d5-720292ae234c"
+      }
+    ],
+    "finishedAt": 1789106098075,
+    "idleAt": 1789106098082,
+    "afterDrainMs": 7,
+    "errors": []
+  }
+}

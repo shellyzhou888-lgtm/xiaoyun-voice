@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>会议展示 · 小云独立接入</title>
+<style>body{max-width:850px;margin:60px auto;padding:24px;background:#f4f6f9;color:#203047;font:16px/1.7 system-ui}button,input{font:inherit;padding:10px 16px;border:1px solid #b7c6d4;border-radius:8px;margin:5px}section{background:white;padding:24px;border-radius:16px;margin:22px 0}pre{white-space:pre-wrap}small{color:#65768c}</style>
+<h1>会议展示</h1><p>这个页面只使用安装后的公开 SDK 与项目 Skill。</p>
+<section><p id="state">松柏厅 · 总览</p><button id="pine">松柏厅</button><button id="ginkgo">银杏厅</button><button id="schedule">打开日程</button></section>
+<section><input id="command" size="44" value="按会务流程准备银杏厅的会议展示"><button id="send">交给小云</button><p><small>需要后台配置 Qwen 与 DeepSeek Key。日程为固定示例数据。</small></p><pre id="result"></pre></section>
+<script type="module">
+import {createVoiceAssistant} from '/vendor/voice.js';
+let state={room:'松柏厅',view:'overview'};
+function update(patch){state={...state,...patch};document.querySelector('#state').textContent=`${state.room} · ${state.view==='schedule'?'日程':'总览'}`;voice.updateContext({...state});return {...state};}
+const voice=createVoiceAssistant({projectId:'meeting',backendUrl:new URLSearchParams(location.search).get('backend')||'http://127.0.0.1:8765',assetBaseUrl:'/xiaoyun/',mode:'live',context:{...state},actions:[
+  {name:'choose_room',description:'选择当前会议室',parameters:{type:'object',properties:{room:{type:'string'}},required:['room']},execute:args=>update(args)},
+  {name:'open_schedule',description:'打开当前会议室日程',parameters:{type:'object',properties:{}},execute:()=>update({view:'schedule'})}
+],onTaskResult:result=>{document.querySelector('#result').textContent=result.summary;},onEvent:event=>{window.dispatchEvent(new CustomEvent('xiaoyun-event',{detail:event}));}});
+document.querySelector('#pine').onclick=()=>update({room:'松柏厅'});
+document.querySelector('#ginkgo').onclick=()=>update({room:'银杏厅'});
+document.querySelector('#schedule').onclick=()=>update({view:'schedule'});
+document.querySelector('#send').onclick=()=>voice.submitText(document.querySelector('#command').value);
+window.addEventListener('pagehide',()=>voice.destroy(),{once:true});
+</script></html>

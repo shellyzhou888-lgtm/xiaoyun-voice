@@ -1,0 +1,200 @@
+{
+  "version": "1.0.0-alpha.4",
+  "checkedAt": "2026-09-11",
+  "behaviorTests": 46,
+  "physicalMicrophoneVerified": false,
+  "realAudio": {
+    "ok": true,
+    "version": "1.0.0-alpha.4",
+    "mode": "synthetic speech through browser microphone, real Qwen + Pi and AudioWorklet; not physical hardware",
+    "steps": [
+      {
+        "question": "帮我切换到华东地区的利润。",
+        "region": "华东",
+        "metric": "profit",
+        "year": 2026,
+        "actions": [
+          {
+            "name": "set_region",
+            "args": {
+              "region": "华东"
+            }
+          },
+          {
+            "name": "set_metric",
+            "args": {
+              "metric": "profit"
+            }
+          }
+        ],
+        "cloudEndToActionRequestMs": 3866,
+        "taskCount": 1
+      },
+      {
+        "question": "嗯，OK，我还想看看华北地区的。",
+        "region": "华北",
+        "metric": "profit",
+        "year": 2026,
+        "actions": [
+          {
+            "name": "set_region",
+            "args": {
+              "region": "华北"
+            }
+          }
+        ],
+        "cloudEndToActionRequestMs": 17,
+        "taskCount": 0
+      },
+      {
+        "question": "再切换到华南，其他设置保持不变。",
+        "region": "华南",
+        "metric": "profit",
+        "year": 2026,
+        "actions": [
+          {
+            "name": "set_region",
+            "args": {
+              "region": "华南"
+            }
+          }
+        ],
+        "cloudEndToActionRequestMs": 45,
+        "taskCount": 0
+      }
+    ],
+    "speechInputs": [
+      {
+        "at": "2026-09-11T06:10:58.194Z",
+        "tools": [
+          "read_result",
+          "replay_result",
+          "stop_delivery",
+          "start_task",
+          "resume_task",
+          "complete_task",
+          "ask_user",
+          "cancel_task",
+          "control_card",
+          "end_conversation",
+          "set_region",
+          "set_period",
+          "set_metric",
+          "navigate",
+          "focus_chart",
+          "project__sales_summary"
+        ]
+      },
+      {
+        "at": "2026-09-11T06:11:24.716Z",
+        "tools": [
+          "read_result",
+          "replay_result",
+          "stop_delivery",
+          "start_task",
+          "resume_task",
+          "complete_task",
+          "ask_user",
+          "cancel_task",
+          "control_card",
+          "end_conversation",
+          "set_region",
+          "set_period",
+          "set_metric",
+          "navigate",
+          "focus_chart",
+          "project__sales_summary"
+        ]
+      },
+      {
+        "at": "2026-09-11T06:11:33.462Z",
+        "tools": [
+          "read_result",
+          "replay_result",
+          "stop_delivery",
+          "start_task",
+          "resume_task",
+          "complete_task",
+          "ask_user",
+          "cancel_task",
+          "control_card",
+          "end_conversation",
+          "set_region",
+          "set_period",
+          "set_metric",
+          "navigate",
+          "focus_chart",
+          "project__sales_summary"
+        ]
+      },
+      {
+        "at": "2026-09-11T06:11:46.519Z",
+        "tools": [
+          "read_result",
+          "replay_result",
+          "stop_delivery",
+          "start_task",
+          "resume_task",
+          "complete_task",
+          "ask_user",
+          "cancel_task",
+          "control_card",
+          "end_conversation",
+          "set_region",
+          "set_period",
+          "set_metric",
+          "navigate",
+          "focus_chart",
+          "project__sales_summary"
+        ]
+      }
+    ],
+    "spoken": [
+      {
+        "kind": "greeting",
+        "text": "在的。"
+      },
+      {
+        "kind": "waiting",
+        "text": "我来处理这个任务。"
+      },
+      {
+        "kind": "result",
+        "text": "销售大屏已切换为华东、利润指标，2026年华东利润420.29万元，同比增9.81%。"
+      },
+      {
+        "kind": "message",
+        "text": "已切换到华北地区，当前显示2026年华北利润数据。"
+      },
+      {
+        "kind": "message",
+        "text": "已切换回华南地区，当前显示2026年华南利润数据。"
+      },
+      {
+        "kind": "message",
+        "text": "好，我先退下啦。"
+      }
+    ],
+    "errors": []
+  },
+  "playback": {
+    "channel": "msedge",
+    "checks": [
+      "actual Worklet start/drain",
+      "whole native chat drains before parallel results",
+      "barge-in and late packet rejection",
+      "browser context revision guard",
+      "wait A drains then result, B omitted",
+      "formal sentence group",
+      "replay without business callback",
+      "three cards/read protection/new result merge"
+    ],
+    "waitingResultAt": 1789107104548,
+    "waitingFinishedAt": 1789107104770,
+    "reading": {
+      "before": 91,
+      "after": 91
+    },
+    "errors": []
+  }
+}

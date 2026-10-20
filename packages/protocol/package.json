@@ -1,0 +1,7 @@
+{
+  "name": "@xiaoyun/protocol",
+  "version": "1.0.0-beta.1",
+  "private": true,
+  "type": "module",
+  "exports": "./src/index.ts"
+}

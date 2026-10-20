@@ -1,0 +1,103 @@
+{
+  "version": "1.0.0-beta.1",
+  "displayVersion": "1.0-beta",
+  "checkedAt": "2026-09-11",
+  "behaviorTests": {
+    "version": "1.0.0-beta.1",
+    "passed": 46,
+    "failed": 0
+  },
+  "backendLogicChanged": false,
+  "beforeFixNoticeGap": 100.28125,
+  "frontend": [
+    {
+      "ok": true,
+      "version": "1.0.0-beta.1",
+      "channel": "msedge",
+      "actualAudioWorklet": true,
+      "systemReducedMotion": true,
+      "gaps": {
+        "notice": 12,
+        "speech": 12,
+        "wrapped": 12
+      },
+      "checks": [
+        "current speech text only",
+        "one live tail, no archive tails",
+        "no redundant speaking status card",
+        "new-result notice never overlays speech or archives",
+        "compact content-based spacing",
+        "streamed line wrapping stays compact",
+        "expired speech leaves no blank area",
+        "queued result cannot replace chat",
+        "summary shown once",
+        "upper-left placement and clear controls",
+        "10 seconds after drain",
+        "pinned archive retained",
+        "interruption rejects late text",
+        "edge dragging"
+      ],
+      "errors": []
+    },
+    {
+      "ok": true,
+      "version": "1.0.0-alpha.6",
+      "channel": "chrome",
+      "actualAudioWorklet": true,
+      "systemReducedMotion": true,
+      "gaps": {
+        "notice": 12,
+        "speech": 12,
+        "wrapped": 12
+      },
+      "checks": [
+        "current speech text only",
+        "one live tail, no archive tails",
+        "no redundant speaking status card",
+        "new-result notice never overlays speech or archives",
+        "compact content-based spacing",
+        "streamed line wrapping stays compact",
+        "expired speech leaves no blank area",
+        "queued result cannot replace chat",
+        "summary shown once",
+        "upper-left placement and clear controls",
+        "10 seconds after drain",
+        "pinned archive retained",
+        "interruption rejects late text",
+        "edge dragging"
+      ],
+      "errors": []
+    }
+  ],
+  "playback": {
+    "channel": "msedge",
+    "checks": [
+      "actual Worklet start/drain",
+      "whole native chat drains before parallel results",
+      "barge-in and late packet rejection",
+      "browser context revision guard",
+      "wait A drains then result, B omitted",
+      "formal sentence group",
+      "replay without business callback",
+      "three cards/read protection/new result merge"
+    ],
+    "waitingResultAt": 1789117334924,
+    "waitingFinishedAt": 1789117335130,
+    "reading": {
+      "before": 27.28125,
+      "after": 25.84375
+    },
+    "errors": []
+  },
+  "localBetaPage": {
+    "ok": true,
+    "version": "1.0.0-beta.1",
+    "url": "http://127.0.0.1:8765/?mode=live",
+    "betaLabels": true,
+    "voiceConfigured": true,
+    "agentConfigured": true,
+    "modelRequests": false,
+    "errors": []
+  },
+  "scope": "Real browser AudioWorklet with protocol fixtures; no live model requests or physical microphone validation in this UI patch. Chrome and playback checks ran the same layout on unpublished alpha.6; Edge caption checks and local page passed the final beta build."
+}

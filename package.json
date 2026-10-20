@@ -1,0 +1,89 @@
+{
+  "name": "@xiaoyun/voice",
+  "version": "1.0.0-beta.1",
+  "private": true,
+  "type": "module",
+  "license": "UNLICENSED",
+  "description": "Private portable Xiaoyun voice component and local agent backend",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/personoj/xiaoyun-voice.git"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "main": "./packages/voice/dist/voice.js",
+  "types": "./packages/voice/dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./packages/voice/dist/index.d.ts",
+      "import": "./packages/voice/dist/voice.js"
+    },
+    "./server": "./backend/index.js",
+    "./assets/*": "./packages/voice/dist/assets/*"
+  },
+  "bin": {
+    "xiaoyun": "./bin/xiaoyun.mjs"
+  },
+  "files": [
+    "packages/voice/dist",
+    "backend",
+    "bin",
+    "AGENTS.md",
+    "README.md",
+    "docs/INTEGRATION.md",
+    ".env.example",
+    "THIRD_PARTY_NOTICES.md",
+    "requirements-search.txt",
+    "skills",
+    "docs/SKILLS.md",
+    "docs/REQUIREMENTS-1.0-alpha.md",
+    "examples/meeting",
+    "docs/VALIDATION-1.0-alpha.md",
+    "docs/evidence/validation-1.0-alpha.json",
+    "docs/VALIDATION-1.0-alpha.2.md",
+    "docs/evidence/validation-1.0-alpha.2.json",
+    "docs/VALIDATION-1.0-alpha.3.md",
+    "docs/evidence/validation-1.0-alpha.3.json",
+    "docs/VALIDATION-1.0-alpha.4.md",
+    "docs/evidence/validation-1.0-alpha.4.json",
+    "docs/VALIDATION-1.0-alpha.5.md",
+    "docs/evidence/validation-1.0-alpha.5.json",
+    "docs/VALIDATION-1.0-beta.md",
+    "docs/evidence/validation-1.0-beta.json"
+  ],
+  "scripts": {
+    "build": "npm run build -w @xiaoyun/voice-ui && node scripts/build-server.mjs",
+    "prepare": "npm run build",
+    "start": "node bin/xiaoyun.mjs start",
+    "check": "tsc --noEmit",
+    "test": "tsx --test packages/server/test/*.test.ts packages/voice/test/*.test.ts"
+  },
+  "dependencies": {
+    "@earendil-works/pi-agent-core": "0.85.1",
+    "@earendil-works/pi-ai": "0.85.1",
+    "@pydantic/monty": "0.0.23",
+    "ajv": "8.20.0",
+    "dotenv": "17.4.2",
+    "parse5": "7.3.0",
+    "typebox": "1.3.30",
+    "ws": "8.21.3",
+    "yaml": "2.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.4",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/ws": "8.18.1",
+    "tsx": "4.23.13",
+    "typescript": "5.9.3",
+    "vite": "7.3.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "streamdown": "2.6.0",
+    "esbuild": "0.28.1"
+  }
+}

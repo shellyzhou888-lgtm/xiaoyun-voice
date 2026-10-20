@@ -1,0 +1,159 @@
+{
+  "version": "1.0.0-alpha.1",
+  "date": "2026-09-11",
+  "offlineTests": 40,
+  "browser": {
+    "msedge": {
+      "channel": "msedge",
+      "checks": [
+        "actual Worklet start/drain",
+        "whole native chat drains before parallel results",
+        "barge-in and late packet rejection",
+        "browser context revision guard",
+        "wait A drains then result, B omitted",
+        "formal sentence group",
+        "replay without business callback",
+        "three cards/read protection/new result merge"
+      ],
+      "waitingResultAt": 1789063719310,
+      "waitingFinishedAt": 1789063719536,
+      "reading": {
+        "before": 91,
+        "after": 91
+      },
+      "errors": []
+    },
+    "chrome": {
+      "channel": "chrome",
+      "checks": [
+        "actual Worklet start/drain",
+        "whole native chat drains before parallel results",
+        "barge-in and late packet rejection",
+        "browser context revision guard",
+        "wait A drains then result, B omitted",
+        "formal sentence group",
+        "replay without business callback",
+        "three cards/read protection/new result merge"
+      ],
+      "waitingResultAt": 1789063719359,
+      "waitingFinishedAt": 1789063719576,
+      "reading": {
+        "before": 91,
+        "after": 91
+      },
+      "errors": []
+    }
+  },
+  "nativeHandoff": {
+    "msedge": {
+      "channel": "msedge",
+      "chatCompletedAt": 1789063729266,
+      "taskCompletedAt": [
+        1789063726208,
+        1789063728204
+      ],
+      "resultStartedAt": [
+        1789063729269,
+        1789063730287,
+        1789063731300,
+        1789063732319
+      ],
+      "actualAudioWorklet": true
+    },
+    "chrome": {
+      "channel": "chrome",
+      "chatCompletedAt": 1789063729247,
+      "taskCompletedAt": [
+        1789063726208,
+        1789063728203
+      ],
+      "resultStartedAt": [
+        1789063729250,
+        1789063730267,
+        1789063731279,
+        1789063732298
+      ],
+      "actualAudioWorklet": true
+    }
+  },
+  "liveSales": {
+    "state": {
+      "region": "华东",
+      "year": 2026,
+      "metric": "profit",
+      "view": "overview"
+    },
+    "summary": "2026年华东利润最高，约420.3万元，占四地区总利润34.78%，页面已切换。",
+    "toolCalls": [
+      "read_skill",
+      "observe_page",
+      "read_skill",
+      "query_sql",
+      "run_python",
+      "query_sql",
+      "execute_page_action",
+      "execute_page_action",
+      "execute_page_action",
+      "execute_page_action",
+      "query_sql",
+      "run_python",
+      "deliver_result"
+    ]
+  },
+  "liveMeeting": {
+    "state": {
+      "room": "银杏厅",
+      "view": "schedule"
+    },
+    "taskCount": 2,
+    "toolCalls": [
+      {
+        "taskId": "e0af73c6-f3fc-46fa-86bf-13d6e43ade58",
+        "tools": [
+          "read_skill",
+          "request_clarification",
+          "read_meeting",
+          "observe_page",
+          "execute_page_action",
+          "execute_page_action",
+          "deliver_result"
+        ]
+      },
+      {
+        "taskId": "971b8a56-a604-4200-a46f-19779c378088",
+        "tools": [
+          "read_skill",
+          "read_meeting",
+          "observe_page",
+          "execute_page_action",
+          "execute_page_action",
+          "deliver_result"
+        ]
+      }
+    ]
+  },
+  "installation": {
+    "ok": true,
+    "version": "1.0.0-alpha.1",
+    "checkedAt": "2026-09-10T18:22:02.207Z",
+    "installed": "local unified tgz in a fresh project",
+    "backend": "installed bundled backend + project module + Skill",
+    "browser": "Edge headless, actual AudioWorklet, text input",
+    "result": "银杏厅已切到日程页面，示例日程含项目讨论、方案评审两场会议。",
+    "simpleActionMs": 902,
+    "errors": []
+  },
+  "physicalMicrophoneTested": false,
+  "notes": [
+    "浏览器使用真实 AudioWorklet 消费 PCM；调度对照使用可控 Qwen/Pi 夹具。",
+    "真实模型验证使用文字入口；销售为本机 SQLite 示例，会议为固定业务工具示例。",
+    "未增加独立 TTS，保持原生 Qwen 语音。"
+  ],
+  "gitInstallation": {
+    "ref": "v1.0.0-alpha.1",
+    "ok": true,
+    "backend": true,
+    "serverExport": true,
+    "skillFiles": true
+  }
+}
