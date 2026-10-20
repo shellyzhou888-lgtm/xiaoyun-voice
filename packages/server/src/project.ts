@@ -7,7 +7,7 @@ import {projectSkills} from './skills.ts';
 import {salesPath, querySql,type QueryResult} from './execution.ts';
 import {runReadOnly} from './tool-runtime.ts';
 
-export interface ProjectToolContext {signal:AbortSignal; taskId:string; contextAtStart:JsonObject}
+export interface ProjectToolContext {signal:AbortSignal; taskId:string; contextAtStart:JsonObject; originalQuestion?:string}
 export type FormattedProjectResult=Pick<TaskResult,'summary'|'markdown'|'data'|'artifacts'|'sources'>;
 export interface ProjectTool {
   name:string; description:string; parameters:JsonObject;

@@ -1,13 +1,13 @@
 {
   "name": "@xiaoyun/voice",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.1-power-earth.4",
   "private": true,
   "type": "module",
   "license": "UNLICENSED",
   "description": "Private portable Xiaoyun voice component and local agent backend",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/personoj/xiaoyun-voice.git"
+    "url": "git+https://github.com/shellyzhou888-lgtm/xiaoyun-voice.git"
   },
   "engines": {
     "node": ">=24"
@@ -34,6 +34,7 @@
     "bin",
     "AGENTS.md",
     "README.md",
+    "CHANGELOG.md",
     "docs/INTEGRATION.md",
     ".env.example",
     "THIRD_PARTY_NOTICES.md",
@@ -85,5 +86,6 @@
     "react-dom": "19.3.0",
     "streamdown": "2.6.0",
     "esbuild": "0.28.1"
-  }
+  },
+  "protocolVersion": "1.0.0-beta.1"
 }

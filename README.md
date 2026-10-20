@@ -1,4 +1,4 @@
-# 小云语音组件 · 1.0-beta
+# 小云语音组件 · 1.0-beta.1-power-earth.4
 
 供仓库所有者个人使用的私有组件库。包含可嵌入任意网页的语音角色、Markdown 结果界面和本地后台；不包含销售展示大屏、真实数据或模型密钥。
 
@@ -9,7 +9,7 @@
 要求 Node.js 24、Python 3.12+，以及此私有仓库的访问权限。已经登录 GitHub 的 Agent 可以直接拉取；新环境先配置 GitHub CLI 或 Git 凭据。不要把 token 写进安装 URL。
 
 ```sh
-npm install git+https://github.com/personoj/xiaoyun-voice.git#v1.0.0-beta.1
+npm install git+https://github.com/shellyzhou888-lgtm/xiaoyun-voice.git#v1.0.0-beta.1-power-earth.4
 npx xiaoyun init
 ```
 
@@ -54,7 +54,7 @@ const voice = createVoiceAssistant({
 ## 开发与版本
 
 ```sh
-git clone https://github.com/personoj/xiaoyun-voice.git
+git clone https://github.com/shellyzhou888-lgtm/xiaoyun-voice.git
 cd xiaoyun-voice
 npm ci
 npm run check

@@ -23,6 +23,7 @@ const wait=(ms:number,signal:AbortSignal)=>new Promise<void>((resolve,reject)=>{
 });
 
 export class VoiceSession {
+  private originalQuestion='';
   private clientId='';private projectId='';private project?:ProjectDefinition;
   private context:JsonObject={};private actions:ActionDescriptor[]=[];private mode:RuntimeMode='demo';
   private autoEndSession=false;
@@ -85,6 +86,7 @@ export class VoiceSession {
       case 'actions.update':if(message.contextVersion!==undefined&&message.contextVersion<this.contextVersion)break;this.validateActions(message.actions);this.actions=message.actions;this.contextVersion=message.contextVersion??this.contextVersion+1;this.syncContext();break;
       case 'input.text':
         if(!this.active||message.sessionId!==this.sessionId)return;
+        this.originalQuestion=message.text;
         this.discardQueuedWaiting('用户继续对话');this.speechQueue=this.speechQueue.filter(s=>s.kind!=='greeting');this.interrupt();this.userSpeaking=false;this.accepting=true;this.inputAt=Date.now();this.state('thinking');
         this.inputGate.reset();this.diagnostic('input.ended',{detail:'text'});
         if(this.handleResultCommand(message.text)){this.accepting=false;this.pumpSpeech();this.maybeIdle();break;}
@@ -194,7 +196,11 @@ export class VoiceSession {
           this.inputGate.reset();this.accepting=false;this.userSpeaking=false;
           if(fatal){gateway.close();this.qwen=undefined;this.end('connection_error');}else{this.pumpSpeech();this.maybeIdle();}
         },
-        trace:(direction,event)=>recordVoiceEvent(sessionId,direction,event),
+        trace:(direction,event)=>{
+          if(direction==='receive'&&event.type==='input_audio_buffer.speech_started')this.originalQuestion='';
+          if(direction==='receive'&&event.type==='conversation.item.input_audio_transcription.completed'&&typeof event.transcript==='string')this.originalQuestion=event.transcript;
+          recordVoiceEvent(sessionId,direction,event);
+        },
         idle:()=>{this.pumpSpeech();this.maybeIdle();},canGenerate:()=>this.active&&(!this.current||!this.currentGenerated),
       });
       this.qwen=gateway;this.syncContext();
@@ -450,13 +456,14 @@ export class VoiceSession {
     if(name==='replay_result'){this.replayResult(String(args.taskId));return {output:{queued:true},suppressReply:true};}
     if(name==='stop_delivery'){this.stopDelivery(String(args.taskId));return {output:{stopped:true},suppressReply:true};}
     if(name.startsWith('project__')){
+      const originalQuestion=this.originalQuestion;
       const tool=getVoiceDirectTools(this.project!).find(t=>t.name===name);if(!tool)throw new Error('项目没有开放这个直达工具');
       const {__taskId,__newTask,...businessArgs}=args;
       const pending=!__newTask&&this.pendingClarification?this.tasks.get(this.pendingClarification):undefined;
-      const task=__taskId?this.requireTask(String(__taskId)):pending?.info.status==='collecting'?pending:this.createTask(tool.description.slice(0,32),`${name.slice(9)} ${JSON.stringify(businessArgs)}`);
+      const task=__taskId?this.requireTask(String(__taskId)):pending?.info.status==='collecting'?pending:this.createTask(originalQuestion.slice(0,60)||tool.description.slice(0,32),`${name.slice(9)} ${JSON.stringify(businessArgs)}`);
       if(task.info.status!=='collecting')return {output:{taskId:task.info.taskId,status:task.info.status},suppressReply:true};
       if(this.pendingClarification===task.info.taskId)this.pendingClarification=undefined;task.info.sessionId=this.sessionId;
-      this.manager.runDirect(task,async()=>this.manager.result(task,await runProjectTool(this.project!,name.slice(9),businessArgs,{signal:task.abort.signal,taskId:task.info.taskId,contextAtStart:task.info.contextAtStart})));
+      this.manager.runDirect(task,async()=>this.manager.result(task,await runProjectTool(this.project!,name.slice(9),businessArgs,{signal:task.abort.signal,taskId:task.info.taskId,contextAtStart:task.info.contextAtStart,originalQuestion})));
       return {output:{taskId:task.info.taskId,status:'accepted'},suppressReply:true};
     }
     if(name==='start_task'){

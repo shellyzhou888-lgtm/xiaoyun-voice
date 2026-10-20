@@ -3,5 +3,5 @@
   "private": true,
   "type": "module",
   "scripts": {"start": "node server.mjs"},
-  "dependencies": {"@xiaoyun/voice": "git+https://github.com/personoj/xiaoyun-voice.git#v1.0.0-beta.1"}
+  "dependencies": {"@xiaoyun/voice": "git+https://github.com/shellyzhou888-lgtm/xiaoyun-voice.git#v1.0.0-beta.1-power-earth.4"}
 }

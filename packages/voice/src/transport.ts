@@ -40,7 +40,7 @@ export class VoiceTransport {
     socket.onerror=()=>this.onConnection(false);
   }
   updateHello(context:Extract<ClientMessage,{type:'hello'}>['context'],actions:Extract<ClientMessage,{type:'hello'}>['actions'],contextVersion:number) {if(this.hello){this.hello.context=context;this.hello.actions=actions;this.hello.contextVersion=contextVersion;}}
-  send(message:ClientMessage) {if(this.ready&&this.socket?.readyState===WebSocket.OPEN)this.socket.send(JSON.stringify(message));else this.queue.push(message);}
+  send(message:ClientMessage) {if(!this.hello||this.closed)return;if(this.ready&&this.socket?.readyState===WebSocket.OPEN)this.socket.send(JSON.stringify(message));else this.queue.push(message);}
   audio(pcm:ArrayBuffer) {if(this.ready&&this.socket?.readyState===WebSocket.OPEN&&this.socket.bufferedAmount<320000)this.socket.send(pcm);}
   destroy() {this.closed=true;this.ready=false;clearTimeout(this.retry);this.queue=[];this.socket?.close();}
 }

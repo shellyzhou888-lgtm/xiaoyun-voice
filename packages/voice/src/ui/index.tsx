@@ -5,6 +5,7 @@ import type {ResultCard,TaskInfo,TaskStatus,VisualState} from '@xiaoyun/protocol
 import type {WidgetHandlers,WidgetOptions,WidgetSnapshot,WidgetView} from '../ui-types';
 import {CharacterView} from './character';
 import {styles} from './styles';
+import {powerEarthTheme} from './power-earth-theme';
 import {useDock} from './use-dock';
 import {BUBBLE_EXIT_MS,useCardHeight,useCardPresence,useCardLifetime} from './motion';
 
@@ -286,7 +287,7 @@ function Widget({snapshot,handlers,options,onCharacter}:{snapshot:WidgetSnapshot
 }
 
 export function createWidgetView(root:ShadowRoot,handlers:WidgetHandlers,options:WidgetOptions={}):WidgetView {
-  const style=document.createElement('style'); style.textContent=styles;
+  const style=document.createElement('style'); style.textContent=styles+(options.ui?.theme==='power-earth'?powerEarthTheme:'');
   const mount=document.createElement('div'); root.append(style,mount);
   const reactRoot=createRoot(mount);
   let character:CharacterView|null=null;

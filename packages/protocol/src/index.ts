@@ -81,11 +81,16 @@ export type ServerMessage =
   | {type:'metrics'; name:string; value:number; taskId?:string};
 export interface VoiceEvent { type:string; [key:string]:unknown }
 export interface VoiceUIOptions {
+  theme?:'default'|'power-earth';
   baseFontSize?:number;
   position?:{right?:number;bottom?:number};
   shortResultMs?:number; longResultMs?:number;
 }
 export interface VoiceAssistantOptions {
+  /** Host-owned, cancellable text/ browser-speech pipeline. No Qwen or audio upload. */
+  browserAdapter?: {
+    submit(text:string,context:JsonObject,signal:AbortSignal):Promise<Pick<TaskResult,'summary'|'markdown'|'data'|'sources'>>;
+  };
   container?:HTMLElement|string; backendUrl?:string; projectId:string; assetBaseUrl?:string;
   context?:JsonObject; actions?:VoiceAction[]; mode?:RuntimeMode;
   wakeWord?:string;

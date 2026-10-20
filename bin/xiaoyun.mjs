@@ -28,7 +28,8 @@ async function main(){
     if(envIndex>=0&&!envFile)throw new Error('--env 后需要文件路径');
     if(await exists(envFile))dotenv.config({path:envFile,quiet:true});
     process.env.XIAOYUN_PACKAGE_ROOT=root;process.env.VOICE_ENABLE_DEMO??='false';process.env.VOICE_MODE??='live';
-    const version=JSON.parse(await readFile(path.join(root,'package.json'),'utf8')).version;
+    const manifest=JSON.parse(await readFile(path.join(root,'package.json'),'utf8'));
+    const version=manifest.protocolVersion||manifest.version;
     const url=`http://${process.env.HOST&&process.env.HOST!=='0.0.0.0'?process.env.HOST:'127.0.0.1'}:${Number(process.env.PORT||8765)}`;
     let health;try{const response=await fetch(`${url}/api/health`,{signal:AbortSignal.timeout(1000)});if(response.ok)health=await response.json();}catch{}
     if(health){if(health.protocolVersion!==version)throw new Error(`端口上的小云后台版本为 ${health.protocolVersion||'未知'}，请先同步更新到 ${version}。`);console.log(`小云后台已在运行：${url}；页面可直接复用。`);return;}
