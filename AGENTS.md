@@ -1,8 +1,8 @@
 # 接入小云：给前端 Agent 的入口
 
-这是个人私有组件库，包含浏览器 SDK 和本地后台，不包含宿主页面。保留用户已有网页和业务函数，将小云接进去即可。
+这是公开可读取的组件源码仓库，包含浏览器 SDK 和本地后台，不包含宿主页面。保留用户已有网页和业务函数，将小云接进去即可。仓库公开不代表发布到 npm，也不改变第三方素材的权利归属；保留 `THIRD_PARTY_NOTICES.md`。
 
-1. 在有仓库访问权限的环境中读取 [接入指南](docs/INTEGRATION.md)。使用 `npm install git+https://github.com/shellyzhou888-lgtm/xiaoyun-voice.git#v1.0.0-beta.1-power-earth.4` 安装；私有仓库需要 Git/GitHub 凭据，不向用户索要明文 token 放进 URL。
+1. 读取 [接入指南](docs/INTEGRATION.md)。使用 `npm install git+https://github.com/shellyzhou888-lgtm/xiaoyun-voice.git#v1.0.0-beta.1-power-earth.5` 安装；无需为读取本仓库配置 GitHub 凭据，不向用户索要明文 token 放进 URL。
 2. 在宿主项目运行 `npx xiaoyun init`。默认复制资源至 `public/xiaoyun`，对应 `assetBaseUrl:'/xiaoyun/'`。其他框架调整静态目录和 URL，使浏览器能读取完整资源。
 3. 填写或复用后台配置 `.env.xiaoyun`，密钥只给后台，不加 `VITE_` / `NEXT_PUBLIC_` 等前端暴露前缀。Python 使用用户指定环境；缺少 `ddgs` 时仅在该环境安装所需包，不升级已有环境。
 4. `npx xiaoyun start` 启动或复用本地后台。默认 `projectId:'default'`，没有演示销售数据库。只有查询业务数据时才创建项目模块。

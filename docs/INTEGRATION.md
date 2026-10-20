@@ -55,7 +55,7 @@ document.querySelector('#east')!.addEventListener('click',()=>setRegion('华东'
 - 麦克风使用 HTTPS 或 localhost；HTTPS 网页应连接 HTTPS/WSS 后台或同源代理。localhost 后台适用于浏览器所在的电脑，远端网站不会自动获得另一台电脑的后台。
 - `PORT`、`HOST`、`ALLOWED_ORIGINS`、`DATA_DIR`、`PYTHON_EXECUTABLE` 都在后台配置中。不同项目可共用后台；不同配置需要分开端口。
 - CLI 默认读取当前工作目录 `.env.xiaoyun`，也可 `npx xiaoyun start --env path/to/private.env`。不会覆盖环境中已指定的值。
-- SDK 和后台协议不一致时同步升级两者并刷新页面。Git 安装建议固定 `#v1.0.0-beta.1-power-earth.4`，不要依赖随时变化的 main。
+- SDK 和后台协议不一致时同步升级两者并刷新页面。Git 安装建议固定 `#v1.0.0-beta.1-power-earth.5`，不要依赖随时变化的 main。
 
 ## 配置业务数据（可选）
 
@@ -103,7 +103,7 @@ SQL 只读访问项目白名单 SQLite。动态 Python 使用 Monty 子集，无
 
 ## 给另一个 Agent 的一句话
 
-> 把这个私有库的小云接入我的现有网页：https://github.com/shellyzhou888-lgtm/xiaoyun-voice 。先读 AGENTS.md，安装 v1.0.0-beta.1-power-earth.4，初始化资源，复用或启动本机后台，把现有按钮函数注册成 actions，页面变化时更新 context，最后用文字指令和麦克风验证。不要引入原销售展示页。
+> 把这个公开可读取的小云组件接入我的现有网页：https://github.com/shellyzhou888-lgtm/xiaoyun-voice 。先读 AGENTS.md，安装 v1.0.0-beta.1-power-earth.5，初始化资源，复用或启动本机后台，把现有按钮函数注册成 actions，页面变化时更新 context，最后用文字指令和麦克风验证。不要引入原销售展示页。
 
 ## 业务 Skill 与复杂页面操作
 

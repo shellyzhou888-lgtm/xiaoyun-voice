@@ -1,15 +1,15 @@
-# 小云语音组件 · 1.0-beta.1-power-earth.4
+# 小云语音组件 · 1.0-beta.1-power-earth.5
 
-供仓库所有者个人使用的私有组件库。包含可嵌入任意网页的语音角色、Markdown 结果界面和本地后台；不包含销售展示大屏、真实数据或模型密钥。
+公开可读取的组件源码仓库，包含可嵌入网页的语音角色、Markdown 结果界面和本地后台；不包含销售展示大屏、真实数据或模型密钥。npm 包仍设置为 `private: true`，仓库未授予额外的代码或第三方素材使用许可；请保留 [第三方素材说明](THIRD_PARTY_NOTICES.md)。
 
 **给开发 Agent：先阅读 [AGENTS.md](AGENTS.md)，再按 [接入指南](docs/INTEGRATION.md) 操作。**
 
 ## 安装到你的网页项目
 
-要求 Node.js 24、Python 3.12+，以及此私有仓库的访问权限。已经登录 GitHub 的 Agent 可以直接拉取；新环境先配置 GitHub CLI 或 Git 凭据。不要把 token 写进安装 URL。
+要求 Node.js 24、Python 3.12+。公开仓库可直接通过 Git 安装，无需 GitHub 登录。不要把 token 写进安装 URL。
 
 ```sh
-npm install git+https://github.com/shellyzhou888-lgtm/xiaoyun-voice.git#v1.0.0-beta.1-power-earth.4
+npm install git+https://github.com/shellyzhou888-lgtm/xiaoyun-voice.git#v1.0.0-beta.1-power-earth.5
 npx xiaoyun init
 ```
 
@@ -62,7 +62,7 @@ npm test
 npm run build
 ```
 
-Git 依赖安装时由 `prepare` 构建 SDK 和后台。若宿主启用了 `--ignore-scripts`，可先在独立 clone 中构建并 `npm pack`，再安装得到的 `.tgz`。安装行为参考 [npm 官方说明](https://docs.npmjs.com/cli/v11/commands/npm-install/)；私有仓库凭据参考 [GitHub 官方说明](https://docs.github.com/en/get-started/git-basics/caching-your-github-credentials-in-git)。
+Git 依赖安装时由 `prepare` 构建 SDK 和后台。若宿主启用了 `--ignore-scripts`，可先在独立 clone 中构建并 `npm pack`，再安装得到的 `.tgz`。安装行为参考 [npm 官方说明](https://docs.npmjs.com/cli/v11/commands/npm-install/)。
 
 角色沿用现有内部使用的 Grok study 适配。保留 [素材来源与使用说明](THIRD_PARTY_NOTICES.md)，不将第三方素材声明为原创或额外授予其分发许可。
 
